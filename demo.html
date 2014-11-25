@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>fancy test</title>
+</head>
+<body>
+
+	<button type="button" id="submit">click to fancy!</button>
+	
+	<script type="text/javascript" src="zepto.js"></script>
+	<script type="text/javascript" src="fancy.js"></script>
+	<script type="text/javascript">
+	var $ = document.querySelectorAll.bind(document);
+	var el = $("#submit")[0];
+
+	var fancy = Fancy({
+		content: "haha",
+		maskStyles: {
+			background: "#f33"
+		}
+	});
+
+	el.onclick = function() {
+		fancy.show();
+	};
+
+	</script>
+</body>
+</html>
