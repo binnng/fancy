@@ -109,6 +109,8 @@
       @elClose = elClose = $ "em", elFancy
 
       elClose.on CLICK, => @hide()
+      
+      htmlContent.splice 1, 1
 
       @
 

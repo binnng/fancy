@@ -107,6 +107,7 @@
           return _this.hide();
         };
       })(this));
+      htmlContent.splice(1, 1);
       return this;
     };
 
