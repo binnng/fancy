@@ -8,6 +8,8 @@
   elBody = $("body")
 
   CLICK = "click"
+  
+  isHasMask = no
 
   class Fancy
 
@@ -50,23 +52,22 @@
     $.extend fancyStyles, publicStyles
 
 
-    easeShow = (el, time = 100) ->
+    easeShow = (el, time = 50) ->
       el.show()
 
       setTimeout ->
         el.css "opacity", 1
       , time
 
-    easeHide = (el, time = 100) ->
+    easeHide = (el, time = 50) ->
       el.css "opacity", 0
 
       setTimeout ->
         el.hide()
-      , 200
+      , time
 
     elMask = null
 
-    isHasMask = no
 
     mask = 
       init: (config) ->
@@ -79,15 +80,17 @@
 
         elBody.append elMask
 
-      show: ->
-        easeShow elMask
+      show: (time = 50) ->
+        easeShow elMask, time
 
-      hide: ->
-        easeHide elMask, 200
+      hide: (time = 50) ->
+        easeHide elMask, time
 
 
     constructor: (@config = {}) ->
       @content = @config.content or ""
+      @name = @config.name or ""
+      @time = @config.time or 50
       @elFancy = null
 
     init: ->
@@ -104,33 +107,38 @@
       $.extend fancyStyles, config.fancyStyles or {}
       elFancy.css fancyStyles
 
-      elBody.append elFancy
+      elFancy.attr "name", @name if @name
+
+      elBody.append elFancy unless @config.onlyMask
 
       @elClose = elClose = $ "em", elFancy
 
       elClose.on CLICK, => @hide()
-      
+
       htmlContent.splice 1, 1
 
       @
 
     show: ->
       elFancy = @elFancy
-      mask.show()
-      easeShow elFancy, 200
+      mask.show @time
+      easeShow elFancy, @time
 
       @
 
     hide: ->
       elFancy = @elFancy
 
-      mask.hide()
+      mask.hide @time
 
       easeHide elFancy
 
 
   entry = (config) ->
     (new Fancy(config)).init()
+
+  entry.mask = -> 
+    (new Fancy({onlyMask: yes})).init().show()
 
   if typeof define is "function"
     define "wallet/fancy", (require, exports, module) ->
