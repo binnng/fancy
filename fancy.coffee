@@ -6,10 +6,18 @@
   $ = WIN["$"]
 
   elBody = $("body")
+  elHtml = $("html")
 
   CLICK = "click"
+
+  inWalletFancyCls = "in-wallet-fancy"
   
   isHasMask = no
+
+  getMax = (arr = []) ->
+    _arr = arr.sort (a, b) -> b - a
+    _arr[0]
+
 
   class Fancy
 
@@ -76,7 +84,6 @@
         $.extend maskStyles, config.maskStyles or {}
 
         elMask.css maskStyles
-        elMask.height $(WIN).height()
 
         elBody.append elMask
 
@@ -92,6 +99,7 @@
       @name = @config.name or ""
       @time = @config.time or 50
       @elFancy = null
+      @width = config.width
 
     init: ->
       config = @config
@@ -120,9 +128,20 @@
       @
 
     show: ->
+
+      elMask.height getMax [
+        $(WIN).height()
+        elHtml.height()
+        elBody.height()
+      ]
+
       elFancy = @elFancy
       mask.show @time
       easeShow elFancy, @time
+
+      elHtml.addClass inWalletFancyCls
+
+      $(WIN).scrollTop 0
 
       @
 
@@ -130,8 +149,9 @@
       elFancy = @elFancy
 
       mask.hide @time
-
       easeHide elFancy
+
+      elHtml.removeClass inWalletFancyCls
 
 
   entry = (config) ->
