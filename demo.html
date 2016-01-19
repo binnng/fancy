@@ -4,27 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>fancy test</title>
+	<link rel="stylesheet" type="text/css" href="fancy.css">
+	<style type="text/css">
+		* {margin:0;padding:0;}
+	</style>
 </head>
 <body>
 
-	<button type="button" id="submit">click to fancy!</button>
+	<button type="button" onclick="myFancy.show()">click to fancy!</button>
 	
 	<script type="text/javascript" src="zepto.js"></script>
 	<script type="text/javascript" src="fancy.js"></script>
 	<script type="text/javascript">
-	var $ = document.querySelectorAll.bind(document);
-	var el = $("#submit")[0];
 
-	var fancy = Fancy({
-		content: "haha",
-		maskStyles: {
-			background: "#f33"
-		}
+	var myFancy = Fancy({
+	  title: "弹框标题",
+	  content: "弹框内容",
+	  name: "demo-fancy",
+	  // 支持传一个按钮或两个按钮,
+	  // 如果传了一个，只用传onConfirm回调即可
+	  btns: ["确定", "取消"],
+	  // 没有关闭按钮
+	  // noX: true,
+	  onConfirm: function() {
+	    alert("点了确定");
+	  },
+	  onCancel: function() {
+	    alert("点了取消");
+	  }
 	});
-
-	el.onclick = function() {
-		fancy.show();
-	};
 
 	</script>
 </body>
