@@ -47,22 +47,22 @@
 	font-style: normal;
 }
 
-.m-fancy .btn-row{
+.m-fancy .m-btn-row{
 	margin: 1em;
 }
 
-.m-fancy .btn-full{
+.m-fancy .m-btn-full{
   width: 100%;
 }
-.m-fancy .btn-half{
+.m-fancy .m-btn-half{
   width: 46%;
 }
 
-.m-fancy .btn-row .btn-half:last-child{
+.m-fancy .m-btn-row .m-btn-half:last-child{
   margin-left: 8%;
 }
 
-.m-fancy .btn-row .btn{
+.m-fancy .m-btn-row .m-btn{
 	background: #ffd61c;
     color: #f12826;
 	padding: .4em 1em;
@@ -76,7 +76,7 @@
 	box-sizing: border-box;
 }
 
-.m-fancy .btn-row .btn:active{
+.m-fancy .m-btn-row .m-btn:active{
 	background: #eec406;
 }
 

@@ -106,12 +106,12 @@
 
         if (btnLength) {
           if (btnLength == 1) {
-            btns = "<div class=btn-row><b class='btn left-btn btn-full'>" + that.btns[0] + "</b></div>";
+            btns = "<div class=m-btn-row><b class='m-btn m-left-btn m-btn-full'>" + that.btns[0] + "</b></div>";
           } else {
             btns = [
-              "<div class=btn-row>",
-              "<b class='btn left-btn btn-half'>" + that.btns[0] + "</b>",
-              "<b class='btn right-btn btn-half'>" + that.btns[1] + "</b>",
+              "<div class=m-btn-row>",
+              "<b class='m-btn m-left-btn m-btn-half'>" + that.btns[0] + "</b>",
+              "<b class='m-btn m-right-btn m-btn-half'>" + that.btns[1] + "</b>",
               "</div>"
             ].join("");
           }
@@ -141,8 +141,8 @@
       }
 
       this.elClose = $("em", elFancy);
-      this.leftBtn = $(".left-btn", elFancy);
-      this.rightBtn = $(".right-btn", elFancy);
+      this.leftBtn = $(".m-left-btn", elFancy);
+      this.rightBtn = $(".m-right-btn", elFancy);
 
       bindEvent();
 
@@ -187,7 +187,7 @@
 
     Fancy.prototype.remove = function() {
       this.hide().elFancy.remove();
-      
+
     }
 
     return Fancy;
