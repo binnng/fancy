@@ -1,0 +1,27 @@
+{
+  "name": "m-fancy",
+  "version": "1.0.1",
+  "description": "a mobile fancy",
+  "main": "fancy.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binnng/fancy.js.git"
+  },
+  "scripts": {
+    "build": "rm -rf build && mkdir build && uglifyjs fancy.js -o build/fancy.min.js -m"
+  },
+  "keywords": [
+    "fancy"
+  ],
+  "author": {
+    "name": "imbinnng@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binnng/fancy.js/issues"
+  },
+  "homepage": "https://github.com/binnng/fancy.js",
+  "dependencies": {
+    "zepto": "^1.2.0"
+  }
+}

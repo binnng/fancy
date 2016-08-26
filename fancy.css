@@ -1,5 +1,5 @@
-.wallet-fancy,
-.wallet-mask{
+.m-fancy,
+.m-mask{
 	position: absolute;
 	-webkit-transition: all .3s ease;
 	transition: all .3s ease;
@@ -8,7 +8,7 @@
 }
 
 
-.wallet-mask{
+.m-mask{
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -17,7 +17,7 @@
 }
 
 
-.wallet-fancy{
+.m-fancy{
 	z-index: 20;
 	width: 80%;
 	left: 50%;
@@ -31,7 +31,7 @@
 	color: #fff;
 }
 
-.wallet-fancy h3{
+.m-fancy h3{
 	font-size: 1.4em;
     font-weight: 700;
     margin: 1em 0;
@@ -39,29 +39,29 @@
 }
 
 
-.wallet-fancy .x-fancy{
+.m-fancy .x-fancy{
 	top: 10px;
 	right: 10px;
 	position: absolute;
 	font-style: normal;
 }
 
-.wallet-fancy .btn-row{
+.m-fancy .btn-row{
 	margin: 1em;
 }
 
-.wallet-fancy .btn-full{
+.m-fancy .btn-full{
   width: 100%;
 }
-.wallet-fancy .btn-half{
+.m-fancy .btn-half{
   width: 46%;
 }
 
-.wallet-fancy .btn-row .btn-half:last-child{
+.m-fancy .btn-row .btn-half:last-child{
   margin-left: 8%;
 }
 
-.wallet-fancy .btn-row .btn{
+.m-fancy .btn-row .btn{
 	background: #ffd61c;
     color: #f12826;
 	padding: .4em 1em;
@@ -75,12 +75,12 @@
 	box-sizing: border-box;
 }
 
-.wallet-fancy .btn-row .btn:active{
+.m-fancy .btn-row .btn:active{
 	background: #eec406;
 }
 
-html.in-wallet-fancy,
-.in-wallet-fancy body{
+html.in-m-fancy,
+.in-m-fancy body{
 	position: relative;
 	height: 100%;
 	overflow: hidden;
@@ -88,6 +88,6 @@ html.in-wallet-fancy,
 
 
 
-.wallet-fancy.no-x .x-fancy{
+.m-fancy.no-x .x-fancy{
 	display: none;
 }
