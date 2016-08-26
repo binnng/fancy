@@ -186,7 +186,8 @@
     };
 
     Fancy.prototype.remove = function() {
-      this.elFancy.hide().remove();
+      this.hide().elFancy.remove();
+      
     }
 
     return Fancy;
