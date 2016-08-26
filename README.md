@@ -3,6 +3,10 @@ fancy
 
 活动弹框
 
+```
+npm install m-fancy --save
+```
+
 ```javascript
 
 var fancy = require("fancy");
