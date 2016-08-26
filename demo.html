@@ -7,13 +7,24 @@
 	<link rel="stylesheet" type="text/css" href="fancy.css">
 	<style type="text/css">
 		* {margin:0;padding:0;}
+
+		button{
+			background-color: #f90;
+			display: block;
+			padding: 1em;
+			color: #fff;
+			box-shadow: none;
+			border: none;
+			margin: 1em;
+		}
 	</style>
 </head>
 <body>
 
 	<button type="button" onclick="myFancy.show()">click to fancy!</button>
+	<button type="button" onclick="myConfirm.show()">click to comfirm!</button>
 	
-	<script type="text/javascript" src="zepto.js"></script>
+	<script type="text/javascript" src="http://cdn.staticfile.org/zepto/1.1.6/zepto.min.js"></script>
 	<script type="text/javascript" src="fancy.js"></script>
 	<script type="text/javascript">
 
@@ -26,12 +37,25 @@
 	  btns: ["确定", "取消"],
 	  // 没有关闭按钮
 	  // noX: true,
-	  onConfirm: function() {
-	    alert("点了确定");
-	  },
-	  onCancel: function() {
-	    alert("点了取消");
-	  }
+	  fns: [function() {
+	      alert("点了左边");
+	    }, function() {
+	      alert("点了右边");
+	    }, function() {
+	      alert("点了关闭");
+	    }]
+	});
+
+	var myConfirm = Fancy.confirm({
+		content: "确认吗？",
+	  btns: ["左边", "右边"],
+	  fns: [function() {
+	      alert("点了左边");
+	      this.hide();
+	    }, function() {
+	      alert("点了右边");
+	      this.hide();
+	    }]
 	});
 
 	</script>

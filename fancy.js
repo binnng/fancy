@@ -149,14 +149,14 @@
       function bindEvent() {
         that.elClose.click(function() {
           that.hide();
-          (that.config.onClose || noop).call(that);
+          (that.config.fns[2] || noop).call(that);
         });
         that.leftBtn.click(function() {
-          (that.config.onConfirm || noop).call(that);
+          (that.config.fns[0] || noop).call(that);
         });
 
         that.rightBtn.click(function() {
-          (that.config.onCancel || noop).call(that);
+          (that.config.fns[1] || noop).call(that);
         });
 
       }
@@ -181,8 +181,13 @@
       elFancy = this.elFancy;
       mask.hide(this.time);
       easeHide(elFancy);
-      return elHtml.removeClass(inWalletFancyCls);
+      elHtml.removeClass(inWalletFancyCls);
+      return this;
     };
+
+    Fancy.prototype.remove = function() {
+      this.elFancy.hide().remove();
+    }
 
     return Fancy;
 
@@ -194,6 +199,11 @@
     return (new Fancy({
       onlyMask: true
     })).init().show();
+  };
+
+  entry.confirm = function(config) {
+    config.noX = true;
+    return entry(config);
   };
   
   if (typeof module != "undefined" && module.exports) {
